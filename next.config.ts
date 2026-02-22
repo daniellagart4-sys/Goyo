@@ -12,9 +12,7 @@ const nextConfig: NextConfig = {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { NormalModuleReplacementPlugin } = require("webpack");
     config.plugins.push(
-      new NormalModuleReplacementPlugin(/^@coinbase\/cdp-sdk/, emptyModule),
-      new NormalModuleReplacementPlugin(/^@solana\/kit/, emptyModule),
-      new NormalModuleReplacementPlugin(/^@solana-program\//, emptyModule)
+
     );
     return config;
   },
