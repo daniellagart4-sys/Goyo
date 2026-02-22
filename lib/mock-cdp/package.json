@@ -1,9 +1,0 @@
-{
-  "name": "@coinbase/cdp-sdk",
-  "version": "0.0.0",
-  "main": "index.js",
-  "exports": {
-    ".": "./index.js",
-    "./*": "./index.js"
-  }
-}
