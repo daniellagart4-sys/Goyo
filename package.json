@@ -20,6 +20,9 @@
     "viem": "^2.46.2",
     "wagmi": "^3.5.0"
   },
+  "overrides": {
+    "@coinbase/cdp-sdk": "file:./lib/mock-cdp"
+  },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
