@@ -21,6 +21,9 @@
     "wagmi": "^3.5.0"
   },
   "devDependencies": {
+    "@solana-program/system": "^0.12.0",
+    "@solana-program/token": "^0.11.0",
+    "@solana/kit": "^6.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
