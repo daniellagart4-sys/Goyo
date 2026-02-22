@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import path from "path";
-import webpack from "webpack";
 
 const emptyModule = path.resolve("./lib/empty-module.js");
 
@@ -10,19 +9,12 @@ const nextConfig: NextConfig = {
     // @coinbase/cdp-sdk (transitive dep of @wagmi/connectors) imports Solana
     // packages that are not installed. Replace ALL imports from these packages
     // with an empty module so the build doesn't fail.
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { NormalModuleReplacementPlugin } = require("webpack");
     config.plugins.push(
-      new webpack.NormalModuleReplacementPlugin(
-        /^@coinbase\/cdp-sdk/,
-        emptyModule
-      ),
-      new webpack.NormalModuleReplacementPlugin(
-        /^@solana\/kit/,
-        emptyModule
-      ),
-      new webpack.NormalModuleReplacementPlugin(
-        /^@solana-program\//,
-        emptyModule
-      )
+      new NormalModuleReplacementPlugin(/^@coinbase\/cdp-sdk/, emptyModule),
+      new NormalModuleReplacementPlugin(/^@solana\/kit/, emptyModule),
+      new NormalModuleReplacementPlugin(/^@solana-program\//, emptyModule)
     );
     return config;
   },
